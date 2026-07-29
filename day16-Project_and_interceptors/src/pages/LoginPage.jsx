@@ -1,38 +1,11 @@
 import React from "react";
-
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { useContext } from "react";
 import { Auth } from "../context/AuthContext";
 import { toast } from "react-toastify";
+import { useAuth } from "../hooks/useAuth";
 
 const LoginPage = () => {
-  let navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isValid },
-  } = useForm();
-
-  const { registeredUser, loggedInUser, setLoggedInUser } = useContext(Auth);
-  const formsubmit = (data) => {
-    let user = registeredUser.find(
-      (val) => val.email === data.email && val.password === data.password,
-    );
-    if (!user) {
-      toast.error("invalid bruv")
-      return
-    }
-    else
-    {
-        setLoggedInUser(user);
-        localStorage.setItem("Loggedinuser",JSON.stringify(user))
-        toast.success("hell yeah")
-        navigate("main")
-    }
-    reset();
-  };
+  let {register,loginFromSubmit,handleSubmit,navigate,errors} = useAuth();
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -44,7 +17,7 @@ const LoginPage = () => {
         <p className="text-center text-gray-500 mt-2 mb-8">Login to continue</p>
 
         {/* Form */}
-        <form onSubmit={handleSubmit(formsubmit)} className="space-y-5">
+        <form onSubmit={handleSubmit(loginFromSubmit)} className="space-y-5">
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Email

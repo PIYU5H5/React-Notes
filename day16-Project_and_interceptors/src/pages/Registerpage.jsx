@@ -3,24 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { Auth } from "../context/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 
 const RegisterPage = () => {
-  const { setRegisteredUser, registeredUser } = useContext(Auth);
-  const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isValid },
-  } = useForm();
+  let {register,registerFromSubmit,handleSubmit,navigate,errors} = useAuth();
 
-  const formsubmit = (data) => {
-    let arr = [...registeredUser, data];
-    setRegisteredUser(arr);
-    console.log("User Registered");
-    localStorage.setItem("registeredUser", JSON.stringify(arr));
-    reset();
-  };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
@@ -34,7 +22,7 @@ const RegisterPage = () => {
         </p>
 
         {/* Form */}
-        <form onSubmit={handleSubmit(formsubmit)} className="space-y-5">
+        <form onSubmit={handleSubmit(registerFromSubmit)} className="space-y-5">
           <div>
             <label className="block text-gray-700 font-medium mb-2">Name</label>
             <input
