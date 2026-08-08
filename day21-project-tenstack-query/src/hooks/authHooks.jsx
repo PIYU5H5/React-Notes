@@ -17,8 +17,8 @@ const getStoredUsers = () => {
 
 export const useAuth = () => {
   let dispatch = useDispatch();
-  const [registerdUsers, setRegisterdUsers] = useState(getStoredUsers);
   let navigate = useNavigate();
+  const [registerdUsers, setRegisterdUsers] = useState(getStoredUsers);
   let {
     register,
     handleSubmit,
