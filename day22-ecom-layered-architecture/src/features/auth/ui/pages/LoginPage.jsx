@@ -16,18 +16,20 @@ const LoginPage = () => {
         <form onSubmit={handleSubmit(loginForm)} className="space-y-5">
           <div>
             <label className="block text-gray-700 font-medium mb-2">
-              Email
+              Username
             </label>
             <input
-              {...register("email", {
-                required: "email is needed",
+              {...register("username", {
+                required: "Username is needed",
               })}
-              type="email"
-              placeholder="Enter your email"
+              type="text"
+              placeholder="Enter your username"
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
             />
           </div>
-          {errors.email && <p className="text-red-500">{errors.email}</p>}
+          {errors.username && (
+            <p className="text-red-500">{errors.username.message}</p>
+          )}
 
           <div>
             <label className="block text-gray-700 font-medium mb-2">
@@ -46,7 +48,9 @@ const LoginPage = () => {
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
             />
           </div>
-          {errors.password && <p className="text-red">{errors.password}</p>}
+          {errors.password && (
+            <p className="text-red-500">{errors.password.message}</p>
+          )}
           <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200">
             Login
           </button>

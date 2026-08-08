@@ -27,7 +27,9 @@ const RegisterPage = () => {
               placeholder="Enter your name"
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
             />
-            {errors.name && <p className="text-red">{errors.name}</p>}
+            {errors.name && (
+              <p className="text-red-500">{errors.name.message}</p>
+            )}
           </div>
 
           <div>
@@ -43,7 +45,9 @@ const RegisterPage = () => {
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
             />
           </div>
-          {errors.email && <p className="text-red">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-red-500">{errors.email.message}</p>
+          )}
 
           <div>
             <label className="block text-gray-700 font-medium mb-2">
@@ -62,7 +66,9 @@ const RegisterPage = () => {
               className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
             />
           </div>
-          {errors.password && <p className="text-red">{errors.password}</p>}
+          {errors.password && (
+            <p className="text-red-500">{errors.password.message}</p>
+          )}
 
           <button
             type="submit"
