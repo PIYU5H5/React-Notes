@@ -13,13 +13,13 @@ import OrderPage from "../features/orders/ui/pages/OrderPage";
 import { hydrateUser } from "../features/auth/api/authApi";
 import { useDispatch } from "react-redux";
 import { addUser } from "../features/auth/state/authSlice";
+import { hydrateUserAction } from "../features/auth/state/authAction";
 const AppRoutes = () => {
   let dispatch = useDispatch();
   useEffect(() => {
-    (async () => {
+    (() => {
       try {
-        let res = await hydrateUser();
-        dispatch(addUser(res));
+        dispatch(hydrateUserAction());
       } catch (error) {}
     })();
   }, []);
