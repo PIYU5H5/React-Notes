@@ -9,6 +9,10 @@ import { useDispatch } from "react-redux";
 import { currentLoggedInEmployee } from "../../features/auth/state/auth/authAction";
 import PublicRoute from "../protectedRoutes/PublicRoute";
 import ProtectedRoute from "../protectedRoutes/ProtectedRoute";
+import { commanRoutes } from "./commanRoutes";
+import { commanRoutes } from "./adminRoutes";
+import RoleBaseRoute from "../protectedRoutes/RoleBaseRoute";
+import { employeeRoutes } from "./employeeRoutes";
 
 export const AppRoutes = () => {
   let dispatch = useDispatch();
@@ -46,10 +50,15 @@ export const AppRoutes = () => {
           path: "",
           element: <DashboardLayout />,
           children: [
+            ...commanRoutes,
             {
-              path: "",
-              element: <Home />,
+              element:<RoleBaseRoute allowedRoles={"admin"}/>,
+              children=adminRoutes,
             },
+            {
+              element:<RoleBaseRoute allowedRoles={"employee"}/>,
+              children=employeeRoutes,
+            }
           ],
         },
       ],
