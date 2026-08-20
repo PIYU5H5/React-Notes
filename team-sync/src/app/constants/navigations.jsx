@@ -1,82 +1,83 @@
 import {
-    Building,
+  Building2,
+  ClipboardList,
   ChartArea,
   File,
-  Icon,
   LayoutDashboard,
-  List,
+  Users,
   PersonStandingIcon,
   Presentation,
   Settings,
+  MessageCircle,
 } from "lucide-react";
-import { Profiler } from "react";
 
-export let employeeNavigation = [
+export const employeeNavigation = [
   {
-    path: "/home",
     title: "Dashboard",
-    Icon: <LayoutDashboard />,
+    path: "/home",
+    icon: LayoutDashboard,
   },
   {
-    path: "/home/myTask",
     title: "My-Task",
-    Icon: <List />,
+    path: "/home/myTask",
+    icon: ClipboardList,
   },
   {
+    title: "Chats",
     path: "/home/chat",
-    title: "chats",
-    Icon: <ChartArea />,
+    icon: MessageCircle,
   },
   {
-    path: "/home/attendance",
     title: "Attendance",
-    Icon: <Presentation />,
+    path: "/home/attendance",
+    icon: Presentation,
   },
   {
+    title: "Profile",
     path: "/home/profile",
-    title: "Proile",
-    Icon: <PersonStandingIcon />,
+    icon: PersonStandingIcon,
   },
   {
-    path: "/home/setting",
     title: "Settings",
-    Icon: <Settings />,
+    path: "/home/setting",
+    icon: Settings,
   },
 ];
-export let adminNavigation = [
+
+export const adminNavigation = [
   {
-    path: "/home",
     title: "Dashboard",
-    Icon: <LayoutDashboard />,
+    path: "/home",
+    icon: LayoutDashboard,
   },
   {
-    path: "/home/task",
-    title: "Task",
-    Icon: <List />,
-  },
-  {
-    path: "/home/department",
-    title: "Department",
-    Icon: <Building />,
-  },
-  {
-    path: "/home/chat",
-    title: "Chats",
-    Icon: <ChartArea />,
-  },
-  {
+    title: "Employees",
     path: "/home/employee",
-    title: "Employee",
-    Icon: <Presentation />,
+    icon: Users,
   },
   {
-    path: "/home/document",
+    title: "Departments",
+    path: "/home/department",
+    icon: Building2,
+  },
+  {
+    title: "Tasks",
+    path: "/home/task",
+    icon: ClipboardList,
+  },
+  {
+    title: "Chats",
+    path: "/home/chat",
+    icon: MessageCircle,
+  },
+  {
     title: "Documents",
-    Icon: <File />,
+    path: "/home/document",
+    icon: File,
   },
   {
-    path: "/home/setting",
     title: "Settings",
-    Icon: <Settings />,
+    path: "/home/setting",
+    icon: Settings,
   },
 ];

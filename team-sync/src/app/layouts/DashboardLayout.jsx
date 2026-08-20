@@ -19,11 +19,11 @@ const DashboardLayout = () => {
       <h1 className="border-r border-gray-500 px-6 py-4">
         <AsideNav />
       </h1>
-      <div className="flex flex-col gap-5 px-6 py-4">
-        <div>
-          <TopNav />
+      <div className="flex flex-col gap-5 bg-[--primary] px-6 py-4 overflow-auto">
+        <TopNav />
+        <div className="overflow-auto">
+          <Outlet />
         </div>
-        <Outlet />
       </div>
     </div>
   );

@@ -10,9 +10,9 @@ import { currentLoggedInEmployee } from "../../features/auth/state/auth/authActi
 import PublicRoute from "../protectedRoutes/PublicRoute";
 import ProtectedRoute from "../protectedRoutes/ProtectedRoute";
 import { commanRoutes } from "./commanRoutes";
-import { commanRoutes } from "./adminRoutes";
 import RoleBaseRoute from "../protectedRoutes/RoleBaseRoute";
 import { employeeRoutes } from "./employeeRoutes";
+import { adminRoutes } from "./adminRoutes";
 
 export const AppRoutes = () => {
   let dispatch = useDispatch();
@@ -52,13 +52,13 @@ export const AppRoutes = () => {
           children: [
             ...commanRoutes,
             {
-              element:<RoleBaseRoute allowedRoles={"admin"}/>,
-              children=adminRoutes,
+              element: <RoleBaseRoute allowedRoles={["admin"]} />,
+              children: adminRoutes,
             },
             {
-              element:<RoleBaseRoute allowedRoles={"employee"}/>,
-              children=employeeRoutes,
-            }
+              element: <RoleBaseRoute allowedRoles={["employee"]} />,
+              children: employeeRoutes,
+            },
           ],
         },
       ],

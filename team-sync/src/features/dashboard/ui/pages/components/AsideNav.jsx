@@ -1,9 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router";
 import NavigationTab from "./NavigationTab";
-import { ChartArea } from "lucide-react";
 import { useSelector } from "react-redux";
-import { adminRoutes } from "../../../../../app/routes/adminRoutes";
 import {
   adminNavigation,
   employeeNavigation,
@@ -17,16 +14,15 @@ const AsideNav = () => {
     <div>
       <div className="flex flex-col gap-2">
         <h1 className="text-3xl font-semibold">team-sync</h1>
-        <p className="text-sm text-[var(--text-secondary)]">
-          Enterprise workspace
-        </p>
+        <p className="text-sm text-(--text-secondary)">Enterprise workspace</p>
       </div>
       <div className="flex flex-col gap-3">
         {navigations.map((route) => {
           return (
             <NavigationTab
+              key={route.path}
               path={route.path}
-              Icon={route.Icon}
+              Icon={route.icon}
               title={route.title}
             />
           );

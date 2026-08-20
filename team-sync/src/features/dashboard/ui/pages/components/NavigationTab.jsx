@@ -1,4 +1,3 @@
-import { ChartArea } from "lucide-react";
 import React from "react";
 import { NavLink } from "react-router";
 
@@ -6,12 +5,16 @@ const NavigationTab = ({ path, title, Icon }) => {
   return (
     <NavLink
       className={({ isActive }) =>
-        `flex gap-4 pl-4 py-3 ${isActive ? "border-r-4 border-[var(--bg-primary)] bg-[var(--secondary)]" : ""}`
+        `flex items-center gap-4 rounded-lg px-4 py-3 transition-all ${
+          isActive
+            ? "bg-white/15 text-white shadow-[0_0_24px_rgba(255,255,255,0.28)] ring-1 ring-white/40"
+            : "text-(--text-secondary) hover:bg-white/8 hover:text-white"
+        }`
       }
-      path={path}
-      end ="/"
+      to={path}
+      end={path === "/home"}
     >
-      <ChartArea size={23} /> {title}
+      {Icon ? <Icon size={20} /> : null} {title}
     </NavLink>
   );
 };
